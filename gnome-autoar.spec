@@ -4,7 +4,7 @@
 #
 Name     : gnome-autoar
 Version  : 0.2.1
-Release  : 2
+Release  : 3
 URL      : https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.1.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.1.tar.xz
 Summary  : Archives integration support for GNOME
@@ -55,7 +55,7 @@ lib components for the gnome-autoar package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1489678211
+export SOURCE_DATE_EPOCH=1490561702
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -67,7 +67,7 @@ export no_proxy=localhost
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1489678211
+export SOURCE_DATE_EPOCH=1490561702
 rm -rf %{buildroot}
 %make_install
 
