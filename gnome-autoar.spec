@@ -4,7 +4,7 @@
 #
 Name     : gnome-autoar
 Version  : 0.2.2
-Release  : 4
+Release  : 5
 URL      : https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.2.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.2.tar.xz
 Summary  : Archives integration support for GNOME
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : LGPL-2.1
 Requires: gnome-autoar-lib
 Requires: gnome-autoar-doc
+Requires: gnome-autoar-data
 BuildRequires : docbook-xml
 BuildRequires : gobject-introspection-dev
 BuildRequires : gtk-doc
@@ -24,10 +25,19 @@ BuildRequires : pkgconfig(libarchive)
 %description
 No detailed description available
 
+%package data
+Summary: data components for the gnome-autoar package.
+Group: Data
+
+%description data
+data components for the gnome-autoar package.
+
+
 %package dev
 Summary: dev components for the gnome-autoar package.
 Group: Development
 Requires: gnome-autoar-lib
+Requires: gnome-autoar-data
 Provides: gnome-autoar-devel
 
 %description dev
@@ -45,6 +55,7 @@ doc components for the gnome-autoar package.
 %package lib
 Summary: lib components for the gnome-autoar package.
 Group: Libraries
+Requires: gnome-autoar-data
 
 %description lib
 lib components for the gnome-autoar package.
@@ -55,7 +66,7 @@ lib components for the gnome-autoar package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1490580736
+export SOURCE_DATE_EPOCH=1491316563
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -67,12 +78,18 @@ export no_proxy=localhost
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1490580736
+export SOURCE_DATE_EPOCH=1491316563
 rm -rf %{buildroot}
 %make_install
 
 %files
 %defattr(-,root,root,-)
+
+%files data
+%defattr(-,root,root,-)
+/usr/lib64/girepository-1.0/GnomeAutoar-0.1.typelib
+/usr/lib64/girepository-1.0/GnomeAutoarGtk-0.1.typelib
+/usr/share/gir-1.0/*.gir
 
 %files dev
 %defattr(-,root,root,-)
@@ -85,13 +102,10 @@ rm -rf %{buildroot}
 /usr/include/gnome-autoar-0/gnome-autoar/autoar-mime-types.h
 /usr/include/gnome-autoar-0/gnome-autoar/autoar-misc.h
 /usr/include/gnome-autoar-0/gnome-autoar/gnome-autoar.h
-/usr/lib64/girepository-1.0/GnomeAutoar-0.1.typelib
-/usr/lib64/girepository-1.0/GnomeAutoarGtk-0.1.typelib
 /usr/lib64/libgnome-autoar-0.so
 /usr/lib64/libgnome-autoar-gtk-0.so
 /usr/lib64/pkgconfig/gnome-autoar-0.pc
 /usr/lib64/pkgconfig/gnome-autoar-gtk-0.pc
-/usr/share/gir-1.0/*.gir
 
 %files doc
 %defattr(-,root,root,-)
