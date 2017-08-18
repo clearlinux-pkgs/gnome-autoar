@@ -4,7 +4,7 @@
 #
 Name     : gnome-autoar
 Version  : 0.2.2
-Release  : 6
+Release  : 7
 URL      : https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.2.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.2.tar.xz
 Summary  : Archives integration support for GNOME
@@ -18,7 +18,9 @@ BuildRequires : gobject-introspection-dev
 BuildRequires : gtk-doc
 BuildRequires : gtk-doc-dev
 BuildRequires : libxslt-bin
+BuildRequires : pkgconfig(gio-2.0)
 BuildRequires : pkgconfig(glib-2.0)
+BuildRequires : pkgconfig(gobject-2.0)
 BuildRequires : pkgconfig(gtk+-3.0)
 BuildRequires : pkgconfig(libarchive)
 
@@ -65,8 +67,11 @@ lib components for the gnome-autoar package.
 %setup -q -n gnome-autoar-0.2.2
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1491316563
+export SOURCE_DATE_EPOCH=1503068967
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -74,11 +79,11 @@ make V=1  %{?_smp_mflags}
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1491316563
+export SOURCE_DATE_EPOCH=1503068967
 rm -rf %{buildroot}
 %make_install
 
