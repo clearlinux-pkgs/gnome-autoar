@@ -4,7 +4,7 @@
 #
 Name     : gnome-autoar
 Version  : 0.2.2
-Release  : 7
+Release  : 8
 URL      : https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.2.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.2.tar.xz
 Summary  : Archives integration support for GNOME
