@@ -4,7 +4,7 @@
 #
 Name     : gnome-autoar
 Version  : 0.2.4
-Release  : 14
+Release  : 15
 URL      : https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.4.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.4.tar.xz
 Summary  : Archives integration support for GNOME
@@ -82,14 +82,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576602572
+export SOURCE_DATE_EPOCH=1586220078
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
@@ -102,7 +102,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1576602572
+export SOURCE_DATE_EPOCH=1586220078
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gnome-autoar
 cp %{_builddir}/gnome-autoar-0.2.4/COPYING %{buildroot}/usr/share/package-licenses/gnome-autoar/01a6b4bf79aca9b556822601186afab86e8c4fbf
