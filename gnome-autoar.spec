@@ -4,7 +4,7 @@
 #
 Name     : gnome-autoar
 Version  : 0.4.3
-Release  : 24
+Release  : 25
 URL      : https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.3.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.3.tar.xz
 Summary  : No detailed summary available
