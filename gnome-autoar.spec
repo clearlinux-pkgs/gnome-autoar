@@ -4,7 +4,7 @@
 #
 Name     : gnome-autoar
 Version  : 0.4.3
-Release  : 26
+Release  : 27
 URL      : https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.3.tar.xz
 Source0  : https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.3.tar.xz
 Summary  : No detailed summary available
@@ -70,7 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1644876025
+export SOURCE_DATE_EPOCH=1664146943
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -84,7 +84,7 @@ ninja -v -C builddir
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/gnome-autoar
-cp %{_builddir}/gnome-autoar-0.4.3/COPYING %{buildroot}/usr/share/package-licenses/gnome-autoar/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/gnome-autoar-%{version}/COPYING %{buildroot}/usr/share/package-licenses/gnome-autoar/01a6b4bf79aca9b556822601186afab86e8c4fbf || :
 DESTDIR=%{buildroot} ninja -C builddir install
 
 %files
